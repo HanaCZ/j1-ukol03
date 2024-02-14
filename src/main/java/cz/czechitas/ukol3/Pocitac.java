@@ -38,6 +38,33 @@ public class Pocitac {
         }
     }
 
+    public void vytvorSouborOVelikosti(long velikost) {
+        if (jeZapnuty) {
+            if (disk.getVyuziteMisto() + velikost <= disk.getKapacita()) {
+                disk.setVyuziteMisto(disk.getVyuziteMisto() + velikost);
+                System.out.println("Soubor se vytvořil.");
+            } else {
+                System.err.println("Nedostatek místa na disku!");
+            }
+        } else {
+            System.err.println("Nelze provést. Počítač je vypnutý!");
+        }
+    }
+
+    public void vymazSouborOVelikosti(long velikost) {
+        if (jeZapnuty) {
+            if (disk.getVyuziteMisto() - velikost >= 0) {
+                disk.setVyuziteMisto(disk.getVyuziteMisto() - velikost);
+                System.out.println("Soubor byl odstraněn.");
+            } else {
+                System.err.println("Chyba. Využité místo nesmí klesnout pod 0");
+            }
+        } else {
+            System.err.println("Nelze provést. Počítač je vypnutý!");
+        }
+
+    }
+
       public void setProcesor(Procesor procesor) {
         this.procesor = procesor;
     }
