@@ -9,24 +9,32 @@ public class HlavniProgram {
         //TODO tady bude váš kód - vytvoření instance třídy Pocitac, zapnutí, vpynutí, výpis hodnot.
         //System.out.println("Program spuštěn.");
 
-        Disk mujDisk = new Disk();
-        mujDisk.setKapacita(994_662_584_320L);
-        mujDisk.setVyuziteMisto(12_000_000_000L);
-
-        Pamet mojePamet = new Pamet();
-        mojePamet.setKapacita(24_000_000_000L);
+        Pocitac mujPocitac = new Pocitac();
+        System.out.println(mujPocitac.toString());
+        mujPocitac.zapniSe();
 
         Procesor mujProcesor = new Procesor();
         mujProcesor.setRychlost(3_490_000_000L);
         mujProcesor.setVyrobce("HP");
 
-        System.out.println(mujDisk.getKapacita());
-        System.out.println(mujDisk.getVyuziteMisto());
+        Pamet mojePamet = new Pamet();
+        mojePamet.setKapacita(24_000_000_000L);
 
-        System.out.println(mojePamet.getKapacita());
+        Disk mujDisk = new Disk();
+        mujDisk.setKapacita(994_662_584_320L);
 
-        System.out.println(mujProcesor.getRychlost());
-        System.out.println(mujProcesor.getVyrobce());
+        mujPocitac.setProcesor(mujProcesor);
+        mujPocitac.setPamet(mojePamet);
+        mujPocitac.setDisk(mujDisk);
+
+        System.out.println(mujPocitac.toString());
+
+        mujPocitac.zapniSe();
+        mujPocitac.zapniSe();
+        System.out.println(mujPocitac.toString());
+        mujPocitac.vypniSe();
+
+        mujPocitac.vypniSe();
     }
 
 }
